@@ -47,15 +47,22 @@ export const portfolio = {
       alt: 'Сертифікат 3',
     },
     {
+      id: 'cert-4',
+      title: 'Сертифікат 4',
+      src: cert('certificate 2.pdf'),
+      type: 'pdf',
+      alt: 'Сертифікат 4',
+    },
+    {
       id: 'thanks-1',
       title: 'Подяка',
-      src: cert('podyaka.jpeg'),
+      src: cert('Подяка_3.jpeg'),
       type: 'image',
       alt: 'Подяка від бази практики',
     },
   ],
   hero: {
-    eyebrow: 'Щоденник переддипломної практики',
+    eyebrow: 'Портфоліо переддипломної практики',
     title: 'Охнич Тарас',
     subtitle: '122 Комп’ютерні науки · помічник розробника ПЗ',
     description:
