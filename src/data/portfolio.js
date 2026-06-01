@@ -1,4 +1,4 @@
-import { publicFile } from '../utils/publicAsset'
+import { publicFile, publicRoot } from '../utils/publicAsset'
 
 const cert = (file) => publicFile('certificates', file)
 
@@ -18,8 +18,11 @@ export const portfolio = {
     { href: '#meta', label: 'Мета' },
     { href: '#kharakter-praktyky', label: 'Характер' },
     { href: '#dyplomna-robota', label: 'Дипломна' },
+    { href: '#proiekt-praktyky', label: 'Проєкт' },
+    { href: '#foto-rozrobky', label: 'Фото' },
     { href: '#zvit', label: 'Щоденник' },
     { href: '#vysnovky-praktyky', label: 'Висновки' },
+    { href: '#materialy', label: 'Матеріали' },
   ],
   certificates: [
     {
@@ -56,7 +59,17 @@ export const portfolio = {
     title: 'Охнич Тарас',
     subtitle: '122 Комп’ютерні науки · помічник розробника ПЗ',
     description:
-      'Портфоліо практики: мета, характер практики, щоденник, дипломна робота та висновки.',
+      'Портфоліо практики та розробка вебсайту Principles.top: мета, щоденник, фото з розробки та висновки.',
+    projectUrl: 'https://principles.top',
+    photo: publicRoot('photo_2026-06-01_12-00-36.jpg'),
+    photoFallback: publicFile('photos', 'hero-photo-placeholder.svg'),
+  },
+  materials: {
+    text:
+      'Звіт, щоденник, характеристика та інші документи з практики зібрані на Google Диску. Посилання відкривається в новій вкладці.',
+    driveUrl:
+      'https://drive.google.com/drive/folders/1twMdJ9HkUEUjfNE3k9_cW4qn_VCmqi-t?hl=uk-UA',
+    driveLabel: 'Відкрити матеріали на Google Диску',
   },
   about: {
     intro:

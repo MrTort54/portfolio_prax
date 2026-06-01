@@ -5,3 +5,11 @@ export function publicFile(folder, fileName) {
 
   return `${base}${folder}/${fileName.split('/').map(encodeURIComponent).join('/')}`
 }
+
+export function publicRoot(fileName) {
+  const base = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`
+
+  return `${base}${encodeURIComponent(fileName)}`
+}

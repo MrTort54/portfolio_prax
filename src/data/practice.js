@@ -1,6 +1,7 @@
 import { publicFile } from '../utils/publicAsset'
 
 const photo = (file) => publicFile('photos', file)
+const workingPhoto = (file) => publicFile('working', file)
 
 const PHOTOS = {
   designOrange: {
@@ -76,6 +77,40 @@ const PHOTOS = {
     type: 'result',
   },
 }
+
+export const practiceProject = {
+  title: 'Principles',
+  subtitle: 'Лендінговий сайт мобільного застосунку',
+  url: 'https://principles.top',
+  description:
+    'Основний результат переддипломної практики — розробка маркетингового вебсайту для застосунку Principles: Habits for Goals. Проєктування в Figma, реалізація на React + Vite, теми оформлення, локалізація та інтеграція з API.',
+  stack: ['React', 'Vite', 'JavaScript', 'Figma', 'Git', 'API'],
+}
+
+const workingGalleryFiles = [
+  'photo_2026-05-18_16-56-28.jpg',
+  'photo_2026-05-18_16-56-34.jpg',
+  'photo_2026-05-18_16-56-36.jpg',
+  'photo_2026-06-01_12-11-50.jpg',
+]
+
+function formatWorkingCaption(fileName) {
+  const match = fileName.match(/(\d{4})-(\d{2})-(\d{2})/)
+
+  if (match) {
+    return `Розробка Principles — ${match[3]}.${match[2]}.${match[1]}`
+  }
+
+  return 'Фото з процесу розробки'
+}
+
+/** Фото для секції «Фото з розробки» — файли з public/working/ */
+export const developmentGallery = workingGalleryFiles.map((fileName, index) => ({
+  src: workingPhoto(fileName),
+  alt: `Фото з розробки Principles (${index + 1})`,
+  caption: formatWorkingCaption(fileName),
+  type: 'work',
+}))
 
 export const practice = {
   metaBlocks: [
