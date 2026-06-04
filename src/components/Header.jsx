@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { portfolio } from '../data/portfolio'
 import { CloseIcon, MenuIcon } from './icons'
 
+const MENU_BREAKPOINT = 1100
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,17 +21,32 @@ export function Header() {
 
   useEffect(() => {
     if (!isMenuOpen) {
+      document.body.style.overflow = ''
       return undefined
     }
 
-    const handleResize = () => {
-      if (window.innerWidth >= 860) {
+    document.body.style.overflow = 'hidden'
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
         setIsMenuOpen(false)
       }
     }
 
+    const handleResize = () => {
+      if (window.innerWidth >= MENU_BREAKPOINT) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [isMenuOpen])
 
   const closeMenu = () => setIsMenuOpen(false)
@@ -57,7 +74,7 @@ export function Header() {
           onClick={() => setIsMenuOpen((value) => !value)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
-          aria-label={isMenuOpen ? 'Закрити меню' : 'Відкрити меню'}
+          aria-label={isMenuOpen ? 'Закрити меню' : 'Відкрити меню навігації'}
         >
           {isMenuOpen ? <CloseIcon className="icon" /> : <MenuIcon className="icon" />}
         </button>
@@ -66,8 +83,18 @@ export function Header() {
       <div
         id="mobile-navigation"
         className={`mobile-nav ${isMenuOpen ? 'is-open' : ''}`}
+        aria-hidden={!isMenuOpen}
       >
+        <button
+          type="button"
+          className="mobile-nav__backdrop"
+          aria-label="Закрити меню"
+          onClick={closeMenu}
+          tabIndex={isMenuOpen ? 0 : -1}
+        />
+
         <nav className="shell mobile-nav__panel" aria-label="Мобільна навігація">
+          <p className="mobile-nav__title">Перехід по сторінці</p>
           <ul className="mobile-nav__links">
             {portfolio.navLinks.map((link) => (
               <li key={link.href}>

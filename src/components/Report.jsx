@@ -99,7 +99,7 @@ export function Report() {
   return (
     <section id="zvit" className="section">
       <div className="shell">
-        <SectionHeading number="07" title="Щоденник практики" />
+        <SectionHeading number="08" title="Щоденник практики" />
         <p className="section-intro">
           Натисніть на день, щоб переглянути деталі, фото дизайну, коду та реалізації.
         </p>

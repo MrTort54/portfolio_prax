@@ -24,8 +24,8 @@ export function PhotoGallery() {
         <div className="photo-gallery__grid">
           {developmentGallery.map((item) => (
             <figure key={item.src} className="day-photo glass-card">
-              <span className={`day-photo__badge day-photo__badge--${item.type}`}>
-                {photoTypeLabels[item.type] ?? item.type}
+              <span className="day-photo__badge day-photo__badge--date">
+                {item.date ?? photoTypeLabels[item.type]}
               </span>
               <img src={item.src} alt={item.alt} loading="lazy" />
               <figcaption>{item.caption}</figcaption>

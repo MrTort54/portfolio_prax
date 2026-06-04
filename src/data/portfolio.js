@@ -20,9 +20,11 @@ export const portfolio = {
     { href: '#dyplomna-robota', label: 'Дипломна' },
     { href: '#proiekt-praktyky', label: 'Проєкт' },
     { href: '#foto-rozrobky', label: 'Фото' },
+    { href: '#repozytorii', label: 'Репозиторії' },
     { href: '#zvit', label: 'Щоденник' },
+    { href: '#sertifikaty', label: 'Сертифікати' },
+    { href: '#zvitna-dokumentatsiya', label: 'Звітна док.' },
     { href: '#vysnovky-praktyky', label: 'Висновки' },
-    { href: '#materialy', label: 'Матеріали' },
   ],
   certificates: [
     {
@@ -71,12 +73,36 @@ export const portfolio = {
     photo: publicRoot('photo_2026-06-01_12-00-36.jpg'),
     photoFallback: publicFile('photos', 'hero-photo-placeholder.svg'),
   },
-  materials: {
+  repositories: [
+    {
+      title: 'Портфоліо практики',
+      label: 'Практика',
+      slug: 'MrTort54/portfolio_prax',
+      description: 'Цей сайт-звіт з щоденником, сертифікатами та матеріалами практики.',
+      url: 'https://github.com/MrTort54/portfolio_prax',
+    },
+    {
+      title: 'Вебсайт Principles',
+      label: 'Проєкт практики',
+      slug: 'bob-byte/website-of-principles-app',
+      description:
+        'Маркетинговий сайт застосунку Principles: React, Vite, теми, локалізація, API.',
+      url: 'https://github.com/bob-byte/website-of-principles-app',
+    },
+    {
+      title: 'Дипломна робота',
+      label: 'Диплом',
+      slug: 'MrTort54/tracker_list',
+      description: 'Мобільний застосунок на Flutter (tracker_list) — тема кваліфікаційної роботи.',
+      url: 'https://github.com/MrTort54/tracker_list',
+    },
+  ],
+  reportDocumentation: {
     text:
       'Звіт, щоденник, характеристика та інші документи з практики зібрані на Google Диску. Посилання відкривається в новій вкладці.',
     driveUrl:
       'https://drive.google.com/drive/folders/1twMdJ9HkUEUjfNE3k9_cW4qn_VCmqi-t?hl=uk-UA',
-    driveLabel: 'Відкрити матеріали на Google Диску',
+    driveLabel: 'Відкрити звітну документацію на Google Диску',
   },
   about: {
     intro:

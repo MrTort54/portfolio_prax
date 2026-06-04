@@ -88,27 +88,34 @@ export const practiceProject = {
 }
 
 const workingGalleryFiles = [
-  'photo_2026-05-18_16-56-28.jpg',
-  'photo_2026-05-18_16-56-34.jpg',
-  'photo_2026-05-18_16-56-36.jpg',
-  'photo_2026-06-01_12-11-50.jpg',
+  {
+    file: 'photo_2026-05-18_16-56-28.jpg',
+    date: '28.04',
+    caption: 'Розробка макетів та планування структури сайту',
+  },
+  {
+    file: 'photo_2026-05-18_16-56-34.jpg',
+    date: '06.05',
+    caption: 'Реалізація компонентів головної сторінки',
+  },
+  {
+    file: 'photo_2026-05-18_16-56-36.jpg',
+    date: '13.05',
+    caption: 'Налаштування тем та адаптивної верстки',
+  },
+  {
+    file: 'photo_2026-06-01_12-11-50.jpg',
+    date: '21.05',
+    caption: 'Завершення функціоналу та тестування сайту',
+  },
 ]
 
-function formatWorkingCaption(fileName) {
-  const match = fileName.match(/(\d{4})-(\d{2})-(\d{2})/)
-
-  if (match) {
-    return `Розробка Principles — ${match[3]}.${match[2]}.${match[1]}`
-  }
-
-  return 'Фото з процесу розробки'
-}
-
 /** Фото для секції «Фото з розробки» — файли з public/working/ */
-export const developmentGallery = workingGalleryFiles.map((fileName, index) => ({
-  src: workingPhoto(fileName),
-  alt: `Фото з розробки Principles (${index + 1})`,
-  caption: formatWorkingCaption(fileName),
+export const developmentGallery = workingGalleryFiles.map((item) => ({
+  src: workingPhoto(item.file),
+  alt: `Фото з розробки — день практики ${item.date}`,
+  caption: `${item.date} — ${item.caption}`,
+  date: item.date,
   type: 'work',
 }))
 

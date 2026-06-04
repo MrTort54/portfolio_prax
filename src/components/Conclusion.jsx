@@ -9,7 +9,7 @@ export function Conclusion() {
   return (
     <section id="vysnovky-praktyky" className="section">
       <div className="shell">
-        <SectionHeading number="08" title="Висновки практики" />
+        <SectionHeading number="11" title="Висновки практики" />
 
         <div className="conclusion-card glass-card">
           {practice.conclusion.split('\n\n').map((paragraph, index) => (

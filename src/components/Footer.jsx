@@ -1,12 +1,9 @@
-import { portfolio } from '../data/portfolio'
-
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell site-footer__inner">
-        <a href="#home">Портфоліо практики — {portfolio.person.name}</a>
-        <a href="#materialy">Використані матеріали</a>
-        <p>© {new Date().getFullYear()}. Всі права захищено.</p>
+        <a href="#home">Портфоліо практики</a>
+        <p className="site-footer__name">Охнич Тарас</p>
       </div>
     </footer>
   )
