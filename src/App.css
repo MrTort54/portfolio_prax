@@ -52,8 +52,15 @@
 
 .site-header {
   position: fixed;
-  inset: 0 0 auto;
-  z-index: 40;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-top: env(safe-area-inset-top, 0px);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  background: transparent;
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
@@ -63,7 +70,7 @@
 
 .site-header.is-scrolled {
   background: rgba(10, 15, 25, 0.8);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  border-bottom-color: rgba(148, 163, 184, 0.16);
   box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
   backdrop-filter: blur(18px);
 }
@@ -72,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
+  min-height: var(--header-height);
   gap: 1rem;
 }
 
@@ -121,6 +128,8 @@
 
 .menu-toggle {
   display: none;
+  position: relative;
+  z-index: 1001;
   flex: none;
   align-items: center;
   justify-content: center;
@@ -140,18 +149,24 @@
 }
 
 .mobile-nav {
-  display: none;
-  pointer-events: none;
-}
-
-.mobile-nav.is-open {
-  pointer-events: auto;
+  position: fixed;
+  top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(6, 10, 18, 0.96);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 }
 
 .mobile-nav__backdrop {
-  position: fixed;
-  inset: 76px 0 0;
-  z-index: 39;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   padding: 0;
   border: 0;
@@ -162,11 +177,12 @@
 
 .mobile-nav__panel {
   position: relative;
-  z-index: 41;
+  z-index: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.75rem;
-  max-height: calc(100svh - 76px);
+  min-height: 0;
   padding: 1rem 0 1.5rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -873,25 +889,11 @@
     display: inline-flex;
   }
 
-  .mobile-nav {
-    position: fixed;
-    inset: 76px 0 0;
-    z-index: 40;
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    opacity: 0;
-    background: rgba(6, 10, 18, 0.96);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-    transition:
-      opacity 0.25s ease,
-      visibility 0.25s ease;
-  }
-
-  .mobile-nav.is-open {
-    visibility: visible;
-    opacity: 1;
+  .site-header {
+    background: rgba(10, 15, 25, 0.92);
+    border-bottom-color: rgba(148, 163, 184, 0.16);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
+    backdrop-filter: blur(18px);
   }
 
   .section {
